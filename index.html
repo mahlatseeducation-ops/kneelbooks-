@@ -42,5 +42,58 @@ Error generating stack: `+r.message+`
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
-<script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script></body>
+<script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script><script>
+(function(){
+var K="kb_install_hide",ua=navigator.userAgent||"";
+function standalone(){try{return matchMedia("(display-mode: standalone)").matches||navigator.standalone===true}catch(e){return false}}
+if(standalone())return;
+var ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),isAnd=/Android/.test(ua),inapp=/FBAN|FBAV|Instagram|WhatsApp|Line\/|TikTok|; wv\)/.test(ua);
+function hidden(){try{var v=localStorage.getItem(K);if(!v)return false;if(v==="forever")return true;return Date.now()-(+v)<3*864e5}catch(e){return false}}
+function hide(v){try{localStorage.setItem(K,v)}catch(e){}}
+if(hidden())return;
+var deferred=null,box=null,shown=false;
+var P='<rect x="10" y="4" width="100" height="142" rx="14" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>';
+var ST='fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2"';
+function svg(b){return '<svg viewBox="0 0 120 150" width="100%" role="img" aria-hidden="true">'+P+b+'</svg>'}
+function bar(x,w){return '<rect x="'+x+'" y="16" width="'+w+'" height="16" rx="8" '+ST+'/><text x="'+(x+w/2)+'" y="27" text-anchor="middle" font-size="8" fill="#633806" font-family="sans-serif">kneelbooks-</text>'}
+var logo='<circle cx="60" cy="72" r="14" fill="#2C2C2A"/><rect x="30" y="100" width="60" height="7" rx="3.5" fill="#D3D1C7"/><rect x="38" y="113" width="44" height="7" rx="3.5" fill="#D3D1C7"/>';
+var dots='<circle cx="94" cy="24" r="10" '+ST+'/><circle cx="94" cy="19" r="1.6" fill="#854F0B"/><circle cx="94" cy="24" r="1.6" fill="#854F0B"/><circle cx="94" cy="29" r="1.6" fill="#854F0B"/>';
+var anSteps=[
+ ["1. Open the link","in Chrome",svg(bar(20,80)+logo)],
+ ["2. Tap the menu","three dots, top right",svg('<rect x="20" y="16" width="62" height="16" rx="8" fill="#F1EFE8" stroke="#B4B2A9"/>'+dots+logo)],
+ ["3. Tap Install app","or Add to Home screen",svg('<rect x="18" y="14" width="84" height="116" rx="8" fill="#fff" stroke="#B4B2A9"/><text x="60" y="32" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">New tab</text><text x="60" y="50" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">History</text><rect x="22" y="58" width="76" height="22" rx="6" '+ST+'/><text x="60" y="72" text-anchor="middle" font-size="9" font-weight="bold" fill="#633806" font-family="sans-serif">Install app</text><text x="60" y="98" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">Share</text><text x="60" y="116" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">Settings</text>')],
+ ["4. Open the app","from your home screen",svg('<rect x="22" y="18" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="50" y="18" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="78" y="18" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="22" y="48" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="50" y="48" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="78" y="48" width="20" height="20" rx="6" fill="#D3D1C7"/><rect x="45" y="84" width="30" height="30" rx="9" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2"/><rect x="50" y="89" width="20" height="20" rx="6" fill="#2C2C2A"/><text x="60" y="128" text-anchor="middle" font-size="8" font-weight="bold" fill="#2C2C2A" font-family="sans-serif">Kneelbooks</text>')]
+];
+var share='<rect x="53" y="127" width="14" height="12" rx="2" fill="none" stroke="#854F0B" stroke-width="1.6"/><path d="M60 131V116M55 120l5-5 5 5" fill="none" stroke="#854F0B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>';
+var iosSteps=[
+ ["1. Open in Safari","paste the link",svg(bar(20,80)+logo)],
+ ["2. Tap Share","the square with arrow",svg(logo+'<rect x="10" y="120" width="100" height="26" rx="0" fill="#fff" opacity=".8"/><circle cx="60" cy="130" r="13" '+ST+'/>'+share.replace('y="127"','y="124"').replace('V116','V113').replace('M55 120','M55 117').replace('l5-5 5 5','l5-5 5 5'))],
+ ["3. Add to Home Screen","then tap Add",svg('<rect x="18" y="14" width="84" height="116" rx="8" fill="#fff" stroke="#B4B2A9"/><text x="60" y="32" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">Copy</text><text x="60" y="50" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">Bookmark</text><rect x="22" y="58" width="76" height="24" rx="6" '+ST+'/><text x="60" y="68" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#633806" font-family="sans-serif">Add to</text><text x="60" y="77" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#633806" font-family="sans-serif">Home Screen</text><text x="60" y="100" text-anchor="middle" font-size="8" fill="#5F5E5A" font-family="sans-serif">Print</text>')]
+];
+function cards(a){return a.map(function(c){return '<div style="background:#faf9f5;border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:8px 8px 10px;text-align:center"><div style="max-width:110px;margin:0 auto">'+c[2]+'</div><div style="font-size:12.5px;font-weight:600;color:#1a1a1a;margin-top:4px">'+c[0]+'</div><div style="font-size:11.5px;color:rgba(0,0,0,.55);margin-top:1px">'+c[1]+'</div></div>'}).join("")}
+function close(v){if(v)hide(v);if(box){box.remove();box=null}}
+function show(){
+ if(shown||box)return;shown=true;
+ var steps=ios?iosSteps:anSteps,cols=ios?3:2;
+ box=document.createElement("div");
+ box.setAttribute("role","dialog");box.setAttribute("aria-label","Install Kneelbooks");
+ box.style.cssText="position:fixed;inset:0;z-index:2147483000;background:rgba(15,20,30,.45);display:flex;align-items:flex-end;justify-content:center;padding:12px;font-family:Inter,system-ui,sans-serif";
+ var note=inapp?'<div style="margin-top:12px;padding:10px 12px;border-radius:12px;background:#FAEEDA;color:#633806;font-size:12.5px;line-height:1.45">You are in an in-app browser. Tap the menu and choose <b>Open in '+(ios?"Safari":"Chrome")+'</b> first, then follow the steps.</div>':"";
+ box.innerHTML='<div style="width:100%;max-width:440px;max-height:92vh;overflow:auto;background:#fff;border-radius:24px;padding:18px;box-shadow:0 24px 80px rgba(0,0,0,.25)">'
+ +'<div style="display:flex;align-items:center;gap:12px"><img src="icon-192.png" alt="" width="44" height="44" style="border-radius:12px;flex:none"><div style="flex:1;min-width:0"><div style="font-size:16px;font-weight:600;color:#1a1a1a">Install Kneelbooks</div><div style="font-size:12.5px;color:rgba(0,0,0,.55);line-height:1.4">Add it to your home screen. Opens full screen, no browser bar.</div></div><button id="kbx" aria-label="Close" style="flex:none;width:30px;height:30px;border-radius:50%;border:none;background:rgba(0,0,0,.06);font-size:18px;line-height:1;cursor:pointer;color:#1a1a1a">\u00d7</button></div>'
+ +'<div style="display:grid;grid-template-columns:repeat('+cols+',1fr);gap:8px;margin-top:14px">'+cards(steps)+'</div>'+note
+ +'<button id="kbi" style="display:none;width:100%;margin-top:14px;height:44px;border:none;border-radius:999px;background:#000;color:#fff;font-size:14px;font-weight:600;cursor:pointer">Install now</button>'
+ +'<div style="display:flex;justify-content:space-between;margin-top:12px"><button id="kbn" style="border:none;background:none;color:rgba(0,0,0,.6);font-size:13px;cursor:pointer;padding:6px 2px">Not now</button><button id="kbf" style="border:none;background:none;color:rgba(0,0,0,.45);font-size:12px;text-decoration:underline;cursor:pointer;padding:6px 2px">Don\u2019t show again</button></div></div>';
+ document.body.appendChild(box);
+ box.addEventListener("click",function(e){if(e.target===box)close(String(Date.now()))});
+ box.querySelector("#kbx").onclick=box.querySelector("#kbn").onclick=function(){close(String(Date.now()))};
+ box.querySelector("#kbf").onclick=function(){close("forever")};
+ refresh();
+}
+function refresh(){if(!box)return;var b=box.querySelector("#kbi");if(!b)return;if(deferred){b.style.display="block";b.onclick=function(){deferred.prompt();deferred.userChoice.then(function(){deferred=null;close("forever")})}}}
+addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferred=e;if(box)refresh();else if(!ios&&!isAnd)show()});
+addEventListener("appinstalled",function(){close("forever")});
+if(ios||isAnd)setTimeout(show,1800);
+})();
+</script></body>
 </html>
