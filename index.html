@@ -201,7 +201,6 @@ function go(){
 setTimeout(go,3500);
 })();
 </script>
-
 <script>
 (function(){
 var K="kb_install_hide",ua=navigator.userAgent||"";
@@ -215,7 +214,7 @@ function hidden(){
     var v=localStorage.getItem(K);
     if(!v) return false;
     if(v==="forever") return true;
-    return Date.now()-(+v) < 2*864e5;
+    return false; // show every time until installed or Dont show again
   }catch(e){return false}
 }
 function hide(v){try{localStorage.setItem(K,v)}catch(e){}}
@@ -269,8 +268,10 @@ function show(){
  +'<button id="kbi" style="display:none;width:100%;margin-top:14px;height:44px;border:none;border-radius:999px;background:#0b0b0b;color:#fff;font-size:14px;font-weight:600;cursor:pointer">Install now</button>'
  +'<div style="display:flex;justify-content:space-between;margin-top:12px"><button id="kbn" style="border:none;background:none;color:rgba(0,0,0,.6);font-size:13px;cursor:pointer;padding:6px 2px">Not now</button><button id="kbf" style="border:none;background:none;color:rgba(0,0,0,.45);font-size:12px;text-decoration:underline;cursor:pointer;padding:6px 2px">Don\u2019t show again</button></div></div>';
  document.body.appendChild(box);
- box.addEventListener("click",function(e){if(e.target===box)close(String(Date.now()))});
- box.querySelector("#kbx").onclick=box.querySelector("#kbn").onclick=function(){close(String(Date.now()))};
+ box.addEventListener("click",function(e){if(e.target===box)close();}); // backdrop click = show again next time
+
+ box.querySelector("#kbx").onclick=box.querySelector("#kbn").onclick=function(){close();}; // show again next open
+
  box.querySelector("#kbf").onclick=function(){close("forever")};
  refresh();
 }
@@ -309,6 +310,5 @@ setTimeout(tryShow, 1200);
 window.KBInstall={show:function(){ show(); }, close:close};
 })();
 </script>
-
 </body>
 </html>
