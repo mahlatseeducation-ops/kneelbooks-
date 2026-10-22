@@ -1,9 +1,8 @@
 {
-  "name": "Kneelbooks",
-  "short_name": "Kneelbooks",
-  "description": "Seed to Tree \u2022 Kneel & Build",
+  "name": "KneelBooks",
+  "short_name": "KneelBooks",
+  "description": "KneelBooks - bended knee and sharpened mind. Read The Laws of Money and more.",
   "start_url": "./",
-  "scope": "./",
   "display": "standalone",
   "background_color": "#0b0b0b",
   "theme_color": "#0b0b0b",
@@ -12,13 +11,37 @@
       "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192-black.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512-black.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-192-white.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512-white.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
