@@ -1,45 +1,58 @@
+// KneelBooks service worker
+// Bump this version any time you upload new files so every device drops old caches.
+const VERSION = "kb-2026-10-23-fix2";
+const CACHE = "kneelbooks-" + VERSION;
 
-const C='kneelbooks-v4-android-fix';
-self.addEventListener('install',e=>{
+// Keep push notifications (OneSignal) working.
+try {
+  importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+} catch (e) {}
+
+self.addEventListener("install", () => {
+  // Activate this version immediately instead of waiting for old tabs to close.
   self.skipWaiting();
-  console.log("[SW] install v4");
 });
-self.addEventListener('activate',e=>{
-  e.waitUntil(
-    caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==C).map(k=>{console.log("[SW] deleting old",k); return caches.delete(k);}))).then(()=>self.clients.claim())
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    (async () => {
+      // Delete every older cache, including the one that served the blank page.
+      const keys = await caches.keys();
+      await Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)));
+      await self.clients.claim();
+      // Reload every open KneelBooks window/app so people leave the blank page
+      // and load the fixed version straight away.
+      const wins = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      wins.forEach((w) => { try { w.navigate(w.url); } catch (e) {} });
+    })()
   );
 });
-self.addEventListener('fetch',e=>{
-  if(e.request.method!=='GET') return;
-  const url=new URL(e.request.url);
-  if(url.origin!==location.origin) return;
-  // For navigation / index.html, always network first to get latest popup
-  if(e.request.mode==='navigate' || url.pathname.endsWith('/') || url.pathname.endsWith('index.html')){
-    e.respondWith(
-      fetch(e.request).then(r=>{
-        const clone=r.clone();
-        caches.open(C).then(c=>c.put(e.request,clone));
-        return r;
-      }).catch(()=>caches.match(e.request).then(m=>m||caches.match('./')))
-    );
-    return;
-  }
-  // For other same-origin assets, cache-first
-  e.respondWith(
-    caches.match(e.request).then(cached=>{
-      if(cached) return cached;
-      return fetch(e.request).then(r=>{
-        const clone=r.clone();
-        caches.open(C).then(c=>c.put(e.request,clone));
-        return r;
-      });
-    })
+
+// Network first: always try the live file, fall back to the cache only when offline.
+self.addEventListener("fetch", (event) => {
+  const req = event.request;
+  if (req.method !== "GET") return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;
+
+  event.respondWith(
+    (async () => {
+      try {
+        const fresh = await fetch(req, { cache: "no-cache" });
+        if (fresh && fresh.ok) {
+          const copy = fresh.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+        }
+        return fresh;
+      } catch (err) {
+        const cached = await caches.match(req);
+        if (cached) return cached;
+        if (req.mode === "navigate") {
+          const home = await caches.match(self.registration.scope);
+          if (home) return home;
+        }
+        throw err;
+      }
+    })()
   );
-});
-// OneSignal
-try{importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");}catch(e){console.log("[SW] OneSignal import failed",e);}
-self.addEventListener('notificationclick',e=>{
-  if(e.notification.tag!=='kb-remind') return;
-  e.notification.close();
-  e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>{for(const c of l){if('focus' in c)return c.focus()}return clients.openWindow('./')}));
 });
