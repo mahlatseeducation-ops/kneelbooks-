@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04141c">
+<title>The Deep — MJ Diphoko | Kneelbooks</title>
+<meta name="description" content="A horama of the parted waters, Leviathan, and the hidden world beneath the sea, by MJ Diphoko.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#04141c; --trench:#0a2a36; --surf:#d9e6e8; --mist:#8fa9b0; --gold:#d9a441; --line:#17414f;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: light){
+  :root.auto{--abyss:#04141c}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;background:var(--abyss)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:radial-gradient(120% 60% at 50% 0%,var(--trench) 0%,var(--abyss) 60%) fixed;color:var(--surf);font-family:var(--body);font-size:1.2rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.25rem;background:rgba(4,20,28,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-family:var(--display);font-size:1.15rem}
+.bar a{text-decoration:none;color:var(--surf)}
+.bar a:hover{color:var(--gold)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--gold)}
+.hero{display:grid;grid-template-columns:minmax(0,22rem) minmax(0,1fr);gap:3rem;align-items:center;max-width:62rem;margin:0 auto;padding:4rem 1.5rem 3rem}
+.hero img{width:100%;height:auto;display:block;border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(217,164,65,.25)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(3.5rem,9vw,6.5rem);line-height:.95;margin:0 0 1rem;color:var(--gold);letter-spacing:.01em}
+.hero .sub{font-family:var(--display);font-size:1.5rem;line-height:1.3;color:var(--surf);margin:0 0 1.5rem}
+.hero .by{color:var(--mist);margin:0 0 2rem}
+.btn{display:inline-block;padding:.7rem 1.4rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-family:var(--display);font-size:1.2rem;font-weight:600}
+.btn:hover{background:var(--gold);color:var(--abyss)}
+main{max-width:38rem;margin:0 auto;padding:0 1.25rem 6rem}
+.opening{margin:3rem 0 5rem;padding-left:1.25rem;border-left:2px solid var(--gold);font-style:italic}
+.opening p{margin:0 0 1rem}
+nav.toc{max-width:38rem;margin:0 auto 4rem;padding:0 1.25rem}
+nav.toc h2{font-family:var(--display);font-size:1.8rem;margin:0 0 1rem;color:var(--gold)}
+nav.toc ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+nav.toc a{display:flex;gap:1.25rem;padding:.7rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--surf)}
+nav.toc a:hover .t{color:var(--gold)}
+nav.toc .n{flex:0 0 6.5rem;color:var(--mist);font-size:1rem;line-height:1.9}
+section{margin:0 0 5rem}
+section h2{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5vw,3rem);line-height:1.1;margin:0 0 2rem;color:var(--surf)}
+.label{font-family:var(--display);font-size:1.3rem;color:var(--gold);margin-bottom:.4rem}
+section h3{font-family:var(--display);font-size:1.7rem;color:var(--gold);margin:3rem 0 1rem;line-height:1.2}
+p{margin:0 0 1.1rem}
+p.echo{font-style:italic;color:var(--gold);text-align:center;margin:1.4rem 0}
+footer{border-top:1px solid var(--line);padding:2rem 1.25rem;text-align:center;color:var(--mist);font-size:1rem}
+@media (max-width:720px){
+  body{font-size:1.1rem}
+  .hero{grid-template-columns:1fr;gap:2rem;padding-top:2rem}
+  .hero img{max-width:16rem;margin:0 auto}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a href="./">Kneelbooks</a>
+  <a href="#contents">Contents</a>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="hero">
+  <img src="the-deep-cover.jpg" alt="Cover of The Deep: a man with a staff stands before parted waters overlooking a sunken city.">
+  <div>
+    <h1>The Deep</h1>
+    <p class="sub">A Horama of the Parted Waters, Leviathan, and the Hidden World Beneath the Sea</p>
+    <p class="by">by MJ Diphoko</p>
+    <a class="btn" href="#opening">Start reading</a>
+  </div>
+</div>
+
+<nav class="toc" id="contents" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol><li><a href="#introduction"><span class="n"></span><span class="t">Introduction</span></a></li><li><a href="#chapter-1"><span class="n">Chapter 1</span><span class="t">The Staff and the Parted Waters</span></a></li><li><a href="#chapter-2"><span class="n">Chapter 2</span><span class="t">The Voice That Would Not Come</span></a></li><li><a href="#chapter-3"><span class="n">Chapter 3</span><span class="t">Leviathan</span></a></li><li><a href="#chapter-4"><span class="n">Chapter 4</span><span class="t">The Ancient Creature</span></a></li><li><a href="#chapter-5"><span class="n">Chapter 5</span><span class="t">The Name That Remained</span></a></li><li><a href="#chapter-6"><span class="n">Chapter 6</span><span class="t">The Mystery of the Deep</span></a></li><li><a href="#epilogue"><span class="n">Epilogue</span><span class="t">Into the Deep of the Deep</span></a></li></ol>
+</nav>
+
+<main>
+<section class="opening" id="opening"><p>My voice locked.</p>
+<p>No sound came out.</p>
+<p>My mouth formed the words, but my throat sealed shut. I tried again, forcing the sentence through my mind with all the strength I could gather.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Nothing.</p>
+<p>I tried louder—not with my voice, but inside my own head.</p>
+<p class="echo">This is the Lord Jesus!</p>
+<p>Still nothing.</p>
+<p>Again.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Locked.</p>
+<p>I drew another breath. My lips moved. My throat tightened. The words were there, clear as ever, yet something seemed to stand between the thought and the sound.</p>
+<p>Why could I speak every other word—but not His name?</p>
+<p>I tried once more.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Locked.</p>
+<p>And in that silence, I began to understand that the strangest part of what I was seeing might not be the world beneath the waters—but what was happening to me.</p></section>
+<section id="introduction"><h2>Introduction</h2><p>Some mysteries are not answered when they are revealed. They become questions that follow you long after the experience has ended.</p>
+<p>There are experiences that leave a person searching for words. Experiences so vivid that, even after they have passed, the mind continues returning to them, trying to understand what happened and why.</p>
+<p>This is the account of a horama I experienced. The word horama refers to a vision or something seen; in biblical usage, it can describe a vision or revelatory experience.</p></section>
+<section id="chapter-1"><div class="label">Chapter 1</div><h2>The Staff and the Parted Waters</h2><p>I found myself in what appeared to be an ancient village, a place that reminded me of the world of the Old Testament. Everything around me carried a sense of age, as though I had stepped into a time far removed from the present.</p>
+<p>I was not alone.</p>
+<p>I would rather not say who was with me; I will simply call him my mentor.</p>
+<p>As I looked around, my attention turned toward the waters before me. I cannot fully explain what drew me to them, but I felt an urge to act. I had a staff in my hand, and a thought came into my mind.</p>
+<p>I raised the staff and struck the waters.</p>
+<p>For a moment, I watched, waiting to see what would happen.</p>
+<p>Then the water began to move.</p>
+<p>It started opening before me, creating a passage where there had been none. I stared in amazement. The opening was small at first, but it was real within the experience. The waters had separated, revealing a path through the middle.</p>
+<p>I could hardly believe what I was seeing.</p>
+<p>I looked at the narrow passage and felt compelled to do it again. I raised the staff and struck the waters a second time.</p>
+<p>This time, the opening became much larger.</p>
+<p>The waters separated farther, leaving a wide path stretching into the distance. It was as though the barrier before me had given way, exposing something that had been concealed.</p>
+<p>But what lay beyond the water was not what I expected.</p>
+<p>As I looked through the opening, I began to notice structures.</p>
+<p>Houses.</p>
+<p>There were houses beneath the waters.</p>
+<p>I looked more closely. These were not simply isolated shapes or objects lying on the ground. They appeared to form part of a place where people lived. There was a sense of order to what I was seeing, as though the space beneath the surface had its own existence.</p>
+<p>I stood there trying to take it all in.</p>
+<p>I had expected to see water, perhaps a riverbed or the ground beneath it. Instead, I was looking at what appeared to be another world.</p>
+<p>The more I observed, the more extraordinary the scene became.</p>
+<p>I could see what appeared to be people living beneath the waters. They seemed aware of the opening, as though they were watching from within the world that had suddenly been exposed.</p>
+<p>I did not understand how it was possible.</p>
+<p>I only knew what I was seeing.</p>
+<p>The waters had opened, and I was standing at the entrance to something I could not explain.</p></section>
+<section id="chapter-2"><div class="label">Chapter 2</div><h2>The Voice That Would Not Come</h2><p>I moved forward, looking at the houses and the people beneath the waters.</p>
+<p>The sight was difficult to comprehend. Everything seemed to belong to a place that existed beyond my ordinary understanding. I could not tell how far the structures extended, nor could I understand the nature of the people I was seeing.</p>
+<p>My mentor remained with me as I continued to observe the scene.</p>
+<p>Then my attention turned toward the people.</p>
+<p>I wanted to preach the Gospel to them. Whatever this place was, whatever its meaning, I felt a strong desire to proclaim the name of Jesus Christ.</p>
+<p>I began speaking.</p>
+<p>“Jesus is Lord!”</p>
+<p>The words came out, and I continued with the declaration. I wanted the people to hear the message. I wanted to make it clear who Jesus was.</p>
+<p>Then I tried to say something more.</p>
+<p>“This is the Lord Jesus—”</p>
+<p>I stopped.</p>
+<p>Something was wrong.</p>
+<p>I tried again.</p>
+<p>“This is the Lord Jesus.”</p>
+<p class="echo">Nothing.</p>
+<p>I could not understand it. I had been speaking only moments earlier. The words were clear in my mind. I knew exactly what I wanted to say.</p>
+<p>I opened my mouth again.</p>
+<p>“This is the Lord Jesus.”</p>
+<p>Silence.</p>
+<p>My lips had moved, but my voice had disappeared.</p>
+<p>For one suspended moment, I could hear nothing from myself. The people were still before me. The hidden world was still there. But the voice I had been using only seconds earlier was gone.</p>
+<p>I swallowed. Perhaps I had not spoken loudly enough. Perhaps I needed to force the words out.</p>
+<p>I took a breath.</p>
+<p>“This is the Lord Jesus!”</p>
+<p class="echo">Nothing.</p>
+<p>I felt the words forming in my mind, each one clear and complete. I could almost hear my own voice saying them. Yet when I tried to speak, my throat seemed to close around the sentence.</p>
+<p>I tried again.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Locked.</p>
+<p>Again.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Locked.</p>
+<p>I could speak inside my mind, but I could not make the words escape my mouth.</p>
+<p>I stood there, trying to understand what was happening. My lips moved. My throat tightened. My heart began to race.</p>
+<p>Why could I speak before, but not now?</p>
+<p>I tried once more, pushing harder, as though I could force the words through whatever was holding them back.</p>
+<p>“This is…”</p>
+<p class="echo">Nothing.</p>
+<p>I paused.</p>
+<p>The silence felt heavier now. I was no longer simply trying to finish a sentence. I was struggling against something I could neither see nor explain.</p>
+<p>I knew the words. I did not need to search for them. I did not need to remember them.</p>
+<p>They were already there.</p>
+<p>And yet I could not speak them.</p>
+<p>I took another breath and tried one final time.</p>
+<p class="echo">This is the Lord Jesus.</p>
+<p class="echo">Locked.</p>
+<p>I wasn't struggling to find the words. I had the words. Something was stopping me from speaking them.</p>
+<p>I stood before the hidden world beneath the waters, unable to understand why that particular declaration would not come out.</p>
+<p>The experience left me with a question that I could not answer.</p>
+<p>Why would I be able to speak every other word—but not this one?</p>
+<p>I did not remain there trying to force an explanation out of the moment. My attention returned to the waters, and I felt drawn to look farther into what had been revealed.</p>
+<p>I raised the staff again.</p>
+<p>If the first opening had exposed houses and people, I wanted to see how far this place extended.</p>
+<p>I struck the waters.</p>
+<p>The passage opened wider still.</p>
+<p>It seemed to reach toward the heart of the river—or perhaps an ocean. I could not determine its full size. The exposed path stretched farther into the distance, and more structures came into view.</p>
+<p>More houses.</p>
+<p>More of what appeared to be a hidden world.</p>
+<p>I looked into the opening and wondered how much remained concealed beneath the surface.</p>
+<p>The waters had revealed something extraordinary, but I had the impression that I had not reached its limits.</p>
+<p>Then the atmosphere changed.</p>
+<p>Something hostile emerged from the waters.</p></section>
+<section id="chapter-3"><div class="label">Chapter 3</div><h2>Leviathan</h2><p>The presence that emerged from the waters seemed hostile. I could not describe it as an ordinary person or a creature I recognised. Its appearance and behaviour gave me the impression that it had come to oppose what was happening.</p>
+<p>The atmosphere became tense.</p>
+<p>The people began reacting, and the scene took on a sense of danger. Whatever had emerged was not simply passing through. It appeared to be causing fear and disorder.</p>
+<p>Then it began chasing people.</p>
+<p>I watched as the situation unfolded, trying to understand what I was witnessing. The scene had changed so quickly. Only moments earlier, I had been looking at the houses beneath the waters. Now there was a hostile presence moving among the people.</p>
+<p>Then another immense presence appeared.</p>
+<p>Leviathan.</p>
+<p>The name is difficult to separate from the biblical imagery that surrounds it. In my experience, the creature was enormous, powerful, and beyond anything I could compare with an ordinary animal.</p>
+<p>It moved toward the hostile creature.</p>
+<p>Then, before I could fully understand what was happening, Leviathan took it into the water.</p>
+<p>It swallowed it.</p>
+<p>I watched in astonishment.</p>
+<p>What surprised me was the manner of the encounter. It did not feel like an ordinary battle in which two creatures fought until one defeated the other. The impression was different, almost like a disciplinary hearing or a judgment—as though the hostile presence had been taken away to answer for what it had done.</p>
+<p>Leviathan had intervened, and the disturbance was gone.</p>
+<p>I watched the waters close around the creature as it disappeared from view.</p>
+<p>I could not see where Leviathan had taken it. I did not know what lay beyond the place where it had vanished.</p>
+<p>The scene left me wondering whether the creatures I had encountered belonged to a world governed by rules I could not understand. Was I seeing something literal within the experience? Was there a symbolic meaning? Was the encounter communicating something about opposition, judgment, or authority?</p>
+<p>I had no complete answer.</p>
+<p>I only knew that the atmosphere had changed, and that the hostile presence was no longer there.</p>
+<p>The waters had opened to reveal something hidden. Something hostile had emerged. Then Leviathan had taken it away.</p>
+<p>But the experience was not finished.</p>
+<p>Another creature appeared before me.</p>
+<p>This one was different from Leviathan.</p>
+<p>And its size was just as difficult to comprehend.</p></section>
+<section id="chapter-4"><div class="label">Chapter 4</div><h2>The Ancient Creature</h2><p>The creature before me was unlike anything I had ever seen.</p>
+<p>Its body reminded me of a gigantic catfish, yet it had features that made it difficult to compare with any ordinary fish. Its body was long and powerful, and parts of it appeared to be covered in armour.</p>
+<p>There was something about its structure that reminded me of a transport system, almost as though its body had been formed in a way that could carry something.</p>
+<p>It was not merely large.</p>
+<p>It was immense.</p>
+<p>Near its mouth, I noticed something that looked like old maroon fabric. That detail stood out against the creature's enormous body, and I could not understand what it meant or why it was there.</p>
+<p>The creature appeared ancient, as though it belonged to a world far removed from the one I knew.</p>
+<p>I entered the water.</p>
+<p>What happened next was just as extraordinary as the creature itself. I could breathe beneath the surface. The water did not prevent me from breathing, and I found myself close enough to observe the creature more clearly.</p>
+<p>I approached it carefully.</p>
+<p>My hand looked incredibly small beside its body. The difference in scale was almost impossible to comprehend. I felt as though I was standing beside something whose size belonged to a world beyond my everyday experience.</p>
+<p>I reached out and touched it.</p>
+<p>The creature did not attack me.</p>
+<p>Instead, it seemed to allow my presence.</p>
+<p>There was a moment when I felt I might even be able to climb onto it or ride upon it. Its body had the appearance of something that could carry a person, though I did not know whether that was its purpose.</p>
+<p>I felt anxious.</p>
+<p>I was not simply terrified, but I was aware of the uncertainty. I was standing beside something so large that I could not predict what it might do.</p>
+<p>I considered the possibility of riding it, but I eventually let the moment pass.</p>
+<p>Then the creature began to move away.</p>
+<p>I watched as it swam farther into the waters. It seemed to be returning to a place beyond my reach, moving into a depth I could not follow.</p>
+<p>Deeper.</p>
+<p>And deeper still.</p>
+<p>Until it disappeared into what I can only describe as the deep of the deep.</p>
+<p>I watched it go until I could no longer see it.</p>
+<p>I had seen the waters part. I had seen houses and people beneath them. I had witnessed Leviathan take away a hostile presence. Now I had encountered another enormous creature that seemed to belong to the oldest and deepest part of that hidden world.</p>
+<p>Yet I was still there, and there was still a message I wanted to share.</p>
+<p>I returned to the people, carrying the memory of what I had seen.</p></section>
+<section id="chapter-5"><div class="label">Chapter 5</div><h2>The Name That Remained</h2><p>When I returned, I was excited by what had happened. I wanted others to understand what I had witnessed.</p>
+<p>I spoke to two boys and to the people around me.</p>
+<p>“Did you see Leviathan?” I asked.</p>
+<p>My excitement was difficult to contain. I had seen the creature take the hostile presence into the waters, and I wanted to know whether the others had witnessed the same thing.</p>
+<p>The name Leviathan became the centre of the conversation.</p>
+<p>People began searching through Scripture, looking for references to Leviathan and trying to understand what the Bible said about it.</p>
+<p>I was struck by the connection between the experience and the language of Scripture.</p>
+<p>In Job 41, Leviathan is described as a creature that cannot easily be subdued by human strength. Psalm 74:13–14 uses the imagery of Leviathan in a passage celebrating God's power over the waters and the forces of chaos. Isaiah 27:1 also speaks of Leviathan in the language of judgment.</p>
+<p>I could not claim that my experience explained every biblical reference. But the name had become important to me because it connected the encounter with a larger set of questions about the sea, ancient creatures, and the mysteries of creation.</p>
+<p>What exactly had I seen?</p>
+<p>Was the creature a literal being within the experience, a symbol, or something whose meaning I had not yet understood?</p>
+<p>I had no complete answer.</p>
+<p>As the people continued searching, another situation began to develop.</p>
+<p>A woman was behaving in a way that disturbed me. Her actions seemed to oppose what had happened with Leviathan, and I sensed a spiritual conflict surrounding her.</p>
+<p>I watched her closely.</p>
+<p>The impression I received was that something was wrong beyond what could be seen on the surface. I felt that the behaviour I was witnessing was connected to spiritual opposition.</p>
+<p>I approached the situation and commanded the devil to come out.</p>
+<p>Then the impression became more serious.</p>
+<p>I felt as though I was confronting something far beyond an ordinary spiritual disturbance. The name Lucifer came to my mind, and I spoke it aloud.</p>
+<p>“Lucifer, come out.”</p>
+<p>What followed was not what I expected.</p>
+<p>An inner message came to me, conveying that I could not cast him out—that he had permission to operate in the world, but that I could stop his operations.</p>
+<p>The message stayed with me because it changed the way I understood the confrontation. It was not presented to me as a simple command followed by an immediate victory. Instead, the emphasis was on limiting the activity that was causing disturbance.</p>
+<p>I responded by declaring that the opposition would no longer be allowed to interfere with what we were doing.</p>
+<p>I set a boundary against the disturbance and continued with the work before me.</p>
+<p>I cannot use this experience alone to establish a doctrine about Lucifer, spiritual authority, or the nature of evil. I can only describe what I perceived in that moment. Its meaning requires careful reflection and grounding in Scripture rather than assumptions.</p>
+<p>What I took from it was that the presence of opposition did not mean I had to abandon the work I believed I was there to do.</p>
+<p>I continued preaching the Gospel.</p>
+<p>But the images of the waters, the creatures, and the hidden world remained in my mind.</p>
+<p>And as I reflected on them, I began to think about the mysteries that surrounded the deep.</p></section>
+<section id="chapter-6"><div class="label">Chapter 6</div><h2>The Mystery of the Deep</h2><p>After reflecting on everything I had seen, I began to think about the sea in a different way.</p>
+<p>The deep had appeared to contain more than water. In my horama, there were structures, inhabitants, immense creatures, and places that seemed to extend far beyond what I could comprehend.</p>
+<p>I could not simply dismiss the experience from my mind. At the same time, I understood that a vivid experience does not automatically provide every answer to the questions it raises.</p>
+<p>I began to consider the mysteries that surround the ocean and the ancient world.</p>
+<p>Human beings have always looked toward the heavens and wondered whether we are alone in the universe. We have also looked into the oceans and wondered what remains undiscovered beneath their surfaces.</p>
+<p>Both questions begin with the same uncertainty:</p>
+<p>How much of creation do we truly understand?</p>
+<p>The heavens are vast. The oceans are vast. There are places in both that human beings have not fully explored.</p>
+<p>This led me to ask a question that stayed with me.</p>
+<p>What if some of the mysteries we imagine to be far away are connected, in ways we do not yet understand, to the world around us?</p>
+<p>I thought about the reports of unidentified objects in the sky, the claims of spacecraft, and the stories of beings described as non-human. Some accounts use the word biologicals to describe alleged living occupants associated with unexplained craft. Other stories speak of portals, hidden entrances, or ways of travelling between places that ordinary human beings cannot explain.</p>
+<p>Some people imagine visitors from distant planets. Others suggest that certain beings might come from dimensions or realms that operate differently from our own. There are also theories that connect unexplained encounters with ancient spiritual traditions and the mysterious beings mentioned in Scripture.</p>
+<p>I found myself considering these possibilities, not because I had proof of them, but because they raised a larger question about how human beings understand the unknown.</p>
+<p>Could every unexplained event be explained by what we already know? Or are there things we have yet to understand?</p>
+<p>I could not answer that question simply by referring to my horama. My experience did not establish that spacecraft were visiting Earth, that portals existed, or that hidden civilisations lived beneath the ocean.</p>
+<p>But it did leave me thinking about the limits of human understanding.</p>
+<p>The ocean itself is a reminder of those limits. Its depths contain landscapes, trenches, mountains, and forms of life that can survive under conditions that once seemed impossible. Scientists have discovered ecosystems around deep-sea hydrothermal vents where life exists without depending on sunlight in the same way as surface ecosystems.</p>
+<p>That does not prove the existence of an advanced underwater civilisation. It does show that the natural world can be more surprising than we once imagined.</p>
+<p>I began to see that mystery should invite careful investigation, not careless certainty.</p>
+<p>And my thoughts returned to the ancient world described in Scripture.</p>
+<h3>The Nephilim and the Ancient World</h3>
+<p>In Genesis 6:1–4, the Bible describes the “sons of God,” the daughters of men, and the Nephilim. This passage has been debated for centuries, and different traditions interpret it in different ways.</p>
+<p>Some understand the “sons of God” as heavenly beings. Others interpret the passage as referring to human rulers or a particular human lineage. The identity of the Nephilim and the meaning of the passage remain subjects of discussion.</p>
+<p>As I reflected on the ancient world, I wondered why these verses continued to capture the imagination of so many people.</p>
+<p>Some modern theories connect the Nephilim with extraterrestrials, hybrid beings, or visitors from another realm. Others interpret the passage within traditional theological frameworks. But the biblical text itself does not establish that the Nephilim were aliens or that they arrived in spacecraft.</p>
+<p>I did not want to confuse a theory with a fact.</p>
+<p>Still, I found myself thinking about the ancient people who lived in the world described by Scripture. How did they understand the beings, powers, and extraordinary events that formed part of their traditions? What did they mean when they spoke about giants? How should we interpret the language they used to describe the world around them?</p>
+<p>The Bible does not answer every modern question about extraterrestrial life, portals, or underwater civilisations. But it does present an ancient world in which human beings wrestled with the presence of evil, the limits of their knowledge, and the authority of God over creation.</p>
+<p>Those themes brought me back to my own experience.</p>
+<p>I had encountered things that I could not fully explain. The temptation was to connect every image to a particular theory, to decide immediately what every creature represented and what every scene meant.</p>
+<p>But I realised that not every question needs an immediate answer.</p>
+<p>Sometimes the honest response is to examine what happened, study the Scriptures carefully, and remain humble about what remains unknown.</p>
+<h3>The Flood and the World Beneath the Waters</h3>
+<p>My thoughts then returned to the flood.</p>
+<p>In Genesis 6–9, the account of Noah describes a world overwhelmed by water. The flood is presented as an act of judgment upon a world filled with corruption and violence. Noah and his family are preserved, and the narrative moves toward a new beginning.</p>
+<p>The waters become more than a physical force. They mark the boundary between the old world and the world that follows.</p>
+<p>I began to consider how powerful this image was.</p>
+<p>A world can be transformed by water. Places that were once familiar can disappear beneath it. The flood account has shaped humanity's imagination for generations, raising questions about judgment, survival, memory, and the fragility of human civilisation.</p>
+<p>Could ancient traditions about lost places and extraordinary beings reflect humanity's long struggle to understand catastrophes and the unknown? Could some stories preserve memories that later generations interpreted in different ways?</p>
+<p>These were questions I found myself considering.</p>
+<p>But I could not conclude that an advanced civilisation survived beneath the ocean during Noah's flood. Genesis does not explicitly describe such a civilisation, nor does it say that unknown beings escaped the flood by living underwater.</p>
+<p>I had to distinguish the questions raised by the story from the claims that could actually be supported.</p>
+<p>Even so, the flood brought my attention back to the sea and its hidden places. It reminded me that water can conceal what lies beneath it, and that the world people know can be changed in ways they never expected.</p>
+<p>I thought again about the houses I had seen in my horama.</p>
+<p>They had appeared to be part of an inhabited world. But what did that mean? Was I seeing a literal place within the experience, a spiritual picture, or a symbolic landscape whose meaning I had not yet understood?</p>
+<p>I could not say with certainty.</p>
+<p>What I could say was that the image had stayed with me, and it had led me to ask questions about the world beneath the surface.</p>
+<h3>Giants, Goliath, and Extraordinary Beings</h3>
+<p>My thoughts also returned to the biblical accounts of giants.</p>
+<p>In 1 Samuel 17, David faces Goliath, a warrior whose size and strength make him a terrifying opponent. The account presents David's victory as a demonstration that the outcome of a battle does not depend only on physical power or human appearance.</p>
+<p>Elsewhere, the Bible refers to groups associated with extraordinary stature, including the Anakim and the Rephaim.</p>
+<p>These passages have inspired many interpretations, especially when read alongside Genesis 6. Some people use them to construct theories about ancient giants, non-human ancestry, or beings connected to extraterrestrial visitors.</p>
+<p>But the biblical passages do not establish those modern theories as fact.</p>
+<p>What they do show is that the biblical writers remembered conflicts with powerful enemies and used these accounts to explore fear, courage, faith, judgment, and the sovereignty of God.</p>
+<p>I began to see how easily the mysteries of the ancient world could become mixed with modern speculation.</p>
+<p>A reference to a giant could become evidence for an entirely different theory. A strange event could be explained as an alien encounter. An unexplained sighting could be connected to a portal or a hidden civilisation.</p>
+<p>Sometimes these ideas are presented with great confidence. But confidence alone cannot turn a theory into evidence.</p>
+<p>For me, the important question was not how many extraordinary explanations I could attach to my experience. It was whether I could remain honest about what I had seen, what Scripture actually says, and what I still did not understand.</p>
+<h3>Could the Deep Conceal More Than We Know?</h3>
+<p>I returned again to the creature that had disappeared into the deep of the deep.</p>
+<p>Its immense body, its armour-like appearance, and the strange impression that it could carry something remained vivid in my mind. I had touched it, and it had allowed me to approach it. Then it had moved away into a place I could not follow.</p>
+<p>I asked myself whether the creature represented something literal within the horama, something symbolic, or a mystery whose meaning I had not yet understood.</p>
+<p>I could not settle the question.</p>
+<p>The same uncertainty surrounded the houses beneath the waters. They had appeared to be part of an inhabited world, but I could not determine whether I was seeing a physical place, a spiritual picture, a symbolic landscape, or something whose meaning I had not yet learned to recognise.</p>
+<p>This was why I began to think about the deep as both a physical reality and a spiritual image.</p>
+<p>The physical ocean is a real environment, containing mountains, trenches, darkness, pressure, and living creatures. In Scripture, the deep and the sea appear in different contexts, sometimes expressing danger, chaos, mystery, or the greatness of God's works.</p>
+<p>Those ways of speaking should not be confused without reason. A biblical symbol does not automatically establish a scientific fact, and an unexplained observation does not automatically prove a spiritual interpretation.</p>
+<p>Yet both remind me that human understanding has limits.</p>
+<p>I could imagine the possibility that life or structures remain undiscovered beneath the ocean. That is different from claiming that a hidden civilisation has been found.</p>
+<p>I could consider reports about unexplained objects or beings without concluding that every report was genuine.</p>
+<p>I could reflect on the Nephilim without claiming that they were extraterrestrials.</p>
+<p>The mystery itself was enough to make me think.</p>
+<p>I did not need to turn every question into a certainty.</p>
+<h3>The Deep and the Last Days</h3>
+<p>As I reflected further, my thoughts returned to the biblical language of the last days.</p>
+<p>Jesus spoke about the days of Noah in Matthew 24:37–39, using the people of that time as a warning about being unprepared for what was coming. The passage emphasises that people continued with ordinary life until judgment arrived, failing to recognise the seriousness of the moment.</p>
+<p>For Christians, this account carries a call to remain spiritually awake, faithful, and prepared.</p>
+<p>It has also inspired many attempts to connect modern events with ancient prophecy.</p>
+<p>Some people interpret reports of unidentified objects, unusual technology, or alleged encounters with non-human beings as signs of the end times. Others connect these reports to the Nephilim, the flood, or spiritual deception.</p>
+<p>I understood why such connections attract attention. When people encounter something they cannot explain, they naturally search for a framework that will help them understand it. For those who read the world through Scripture, biblical prophecy often becomes part of that search.</p>
+<p>But I also recognised the need for caution.</p>
+<p>Not every unexplained event is a fulfilment of prophecy. Not every unusual object is a spiritual being. Not every claim about an alien, a portal, or a hidden creature is reliable.</p>
+<p>Scripture calls believers to discernment, not to accept every extraordinary story without examination.</p>
+<p>The account of Noah reminds me that faithfulness matters more than fascination with the unknown. Jesus' warning directs attention toward readiness, righteousness, and the condition of the heart.</p>
+<p>If the world contains mysteries that we have not yet understood, that does not change our responsibility to live truthfully, love others, and remain faithful to God.</p>
+<p>The deep may hold questions that I cannot answer.</p>
+<p>But uncertainty does not have to become fear.</p>
+<h3>What My Horama Left With Me</h3>
+<p>When I bring these thoughts together, I return to the experience itself.</p>
+<p>I remember striking the waters with the staff and watching them part.</p>
+<p>I remember seeing the houses and the people beneath the surface.</p>
+<p>I remember trying to proclaim the name of Jesus and finding my voice restrained at the moment I wanted to speak most clearly.</p>
+<p>I remember the hostile presence that emerged from the water, and Leviathan taking it away.</p>
+<p>I remember the immense creature that allowed me to approach it before swimming into the deep of the deep.</p>
+<p>I remember the confrontation with the woman and the impression that I should stop the operations of the opposition rather than assume that I understood every part of what was happening.</p>
+<p>These scenes remain part of my account. I cannot provide a complete explanation for them, and I will not pretend to know more than I know.</p>
+<p>What I can say is that the horama brought several themes together in a way that I could not easily forget: the mystery of creation, the reality of spiritual conflict as I perceived it, the limits of human understanding, and the importance of proclaiming the Gospel.</p>
+<p>The world beneath the waters became a picture of everything that remained hidden from me.</p>
+<p>The creatures represented a scale and power that I could not control.</p>
+<p>The interruption of my voice reminded me of the difficulty of speaking when I felt most compelled to speak.</p>
+<p>And the return to preaching reminded me that the central purpose of my experience was not simply to see extraordinary things.</p>
+<p>It was to continue proclaiming Jesus Christ.</p>
+<p>I do not want fascination with the deep to become greater than my faith. I do not want theories about aliens, giants, portals, or ancient beings to replace careful reading of Scripture. Nor do I want uncertainty to prevent me from asking honest questions.</p>
+<p>I want to examine what I experienced, test my interpretations, and remain humble about what I do not understand.</p>
+<p>The ocean is vast. The ancient world continues to raise questions. Scripture contains passages whose meanings have been debated for generations. Human knowledge continues to develop, revealing new things while reminding us how much remains unknown.</p>
+<p>And through all of it, I return to the same conviction:</p>
+<p>Mystery does not make truth less important.</p>
+<p>If there is something to learn from the deep, I must approach it with humility. If there is something to understand in Scripture, I must study it carefully. If I am called to proclaim the Gospel, I must not allow fear, fascination, or opposition to silence me.</p>
+<p>The deep may conceal things from human sight, but it does not stand beyond the knowledge or authority of God.</p>
+<p>That is where my reflection ends—not with every mystery solved, but with a renewed awareness of how much I still have to learn.</p></section>
+<section id="epilogue"><div class="label">Epilogue</div><h2>Into the Deep of the Deep</h2><p>There are places in this world that human beings have barely explored. There are questions about the ancient past that remain open to interpretation. There are reports of unexplained events that require careful investigation, and there are biblical passages that continue to challenge readers to think deeply about creation, judgment, and the unseen.</p>
+<p>My horama brought these questions together in a way that was personal to me.</p>
+<p>I saw the waters part.</p>
+<p>I saw what appeared to be a world beneath them.</p>
+<p>I encountered creatures of extraordinary size, and I witnessed events whose meaning I could not fully understand.</p>
+<p>I have written what I remember, not to claim that every question has been answered, but to preserve the experience and the reflections it awakened in me.</p>
+<p>Perhaps the greatest lesson was not the size of Leviathan, the strange form of the ancient creature, or the houses hidden beneath the waters.</p>
+<p>Perhaps it was the reminder that I must distinguish what I witnessed from what I imagine, what Scripture says from what people speculate, and what I believe from what I can prove.</p>
+<p>I can continue to ask questions without pretending to possess every answer.</p>
+<p>And I can continue to proclaim the Gospel without needing to understand every mystery of creation.</p>
+<p>I remember the creature moving away, its enormous body disappearing into the waters. I remember the feeling of standing before something I could not explain, watching it return to a depth beyond my reach.</p>
+<p>It entered the deep of the deep.</p>
+<p>I watched it go.</p>
+<p>Then I turned back toward the people.</p>
+<p>There was still a message to proclaim.</p>
+<p>The deep remained hidden. The mystery remained. But my journey did not end there.</p></section>
+
+</main>
+
+<footer>
+  <p>The Deep, by MJ Diphoko.</p>
+  <p><a href="./">Back to Kneelbooks</a> · <a href="#">Back to top</a></p>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function upd(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+  }
+  window.addEventListener('scroll',upd,{passive:true});upd();
+})();
+</script>
+</body>
+</html>
